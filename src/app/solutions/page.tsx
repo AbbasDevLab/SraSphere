@@ -32,7 +32,7 @@ export default function SolutionsPage() {
       <FadeIn>
         <h1 className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">Solutions</h1>
         <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
-          SraSphere designs adaptable platforms tailored to each industry's operational realities.
+          SraSphere designs adaptable platforms tailored to each industry&apos;s operational realities.
         </p>
       </FadeIn>
 

@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "SraSphere",
   description:
     "SraSphere builds scalable SaaS platforms, automation systems, and secure cloud solutions for modern businesses.",
-  url: "https://www.srasphere.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.srasphere.com",
   links: {
     email: "hello@srasphere.com",
   },

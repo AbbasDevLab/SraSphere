@@ -21,22 +21,45 @@ export function Footer() {
             </button>
           </form>
         </div>
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-          <p className="text-sm text-slate-600 dark:text-slate-300">
-            © {new Date().getFullYear()} {siteConfig.name}. Built for long-term digital ecosystems.
-          </p>
-          <div className="flex flex-wrap gap-4 text-sm">
-            {siteConfig.legalItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
-              >
-                {item.label}
-              </Link>
-            ))}
+        <div className="grid gap-6 border-t border-slate-200/70 pt-6 dark:border-slate-800 md:grid-cols-3">
+          <div>
+            <p className="text-base font-semibold text-slate-900 dark:text-slate-100">{siteConfig.name}</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+              Engineering secure, scalable, and maintainable software ecosystems for ambitious businesses.
+            </p>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Company</p>
+            <div className="mt-2 flex flex-col gap-2 text-sm">
+              {siteConfig.navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Legal</p>
+            <div className="mt-2 flex flex-col gap-2 text-sm">
+              {siteConfig.legalItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
+        <p className="border-t border-slate-200/70 pt-5 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-300">
+          © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+        </p>
       </div>
     </footer>
   );

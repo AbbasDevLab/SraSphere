@@ -8,6 +8,7 @@ import { useState } from "react";
 import { siteConfig } from "@/lib/site-config";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { cn } from "@/lib/utils";
+import { ButtonLink } from "@/components/ui/button";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -16,7 +17,10 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/70">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+        <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 text-xs font-bold text-white">
+            S
+          </span>
           {siteConfig.name}
         </Link>
 
@@ -38,6 +42,9 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ButtonLink href="/contact" className="hidden h-10 px-4 text-xs md:inline-flex">
+            Book Consultation
+          </ButtonLink>
           <ThemeToggle />
           <button
             type="button"
@@ -74,6 +81,9 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
+              <ButtonLink href="/contact" className="mt-2">
+                Book Consultation
+              </ButtonLink>
             </nav>
           </motion.div>
         ) : null}

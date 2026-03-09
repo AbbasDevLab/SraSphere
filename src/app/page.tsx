@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -34,11 +34,36 @@ const highlights = [
   "Long-Term Product Vision",
 ];
 
+const stats = [
+  { value: "99.9%", label: "Target Platform Uptime" },
+  { value: "< 200ms", label: "Optimized API Response Goal" },
+  { value: "24/7", label: "Infrastructure Observability" },
+  { value: "Enterprise", label: "Security & Compliance Mindset" },
+];
+
+const processSteps = [
+  {
+    title: "Discovery & System Blueprint",
+    description: "We map product goals, architecture constraints, and growth requirements into a clear technical plan.",
+  },
+  {
+    title: "Build & Integrate",
+    description: "Our engineers ship modular services, polished interfaces, and reliable integrations with your existing stack.",
+  },
+  {
+    title: "Scale & Evolve",
+    description: "We continue with optimization, security hardening, and feature expansion to support long-term product maturity.",
+  },
+];
+
 export default function HomePage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
       <section className="grid gap-8 py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <FadeIn>
+          <p className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700 dark:border-blue-900/60 dark:bg-blue-950/30 dark:text-blue-300">
+            Product Engineering Partner
+          </p>
           <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl">
             Powering Intelligent Digital Ecosystems
           </h1>
@@ -50,6 +75,19 @@ export default function HomePage() {
             <ButtonLink href="/contact" variant="secondary">
               Contact Us
             </ButtonLink>
+          </div>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-xl border border-slate-200/80 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
+              >
+                <p className="text-xl font-semibold text-slate-900 dark:text-slate-100">{stat.value}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
         </FadeIn>
 
@@ -70,6 +108,9 @@ export default function HomePage() {
                 <div className="h-14 rounded-lg bg-white/20" />
               </div>
             </div>
+            <ButtonLink href="/products" variant="secondary" className="mt-6 border-white/40 bg-white/10 text-white hover:bg-white/20">
+              View Product Details <ArrowRight className="ml-2 h-4 w-4" />
+            </ButtonLink>
           </div>
         </FadeIn>
       </section>
@@ -106,15 +147,45 @@ export default function HomePage() {
       </section>
 
       <section className="py-12">
-        <FadeIn className="rounded-3xl border border-slate-200/80 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
-            Build with confidence
+        <FadeIn>
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">How We Deliver</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
+            Our process is designed for clarity, velocity, and measurable business outcomes.
           </p>
+        </FadeIn>
+        <div className="mt-6 grid gap-5 md:grid-cols-3">
+          {processSteps.map((step, index) => (
+            <FadeIn key={step.title} delay={0.05 * index}>
+              <Card
+                title={step.title}
+                description={step.description}
+                className="h-full border-slate-300/80 dark:border-slate-800"
+              />
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-12">
+        <FadeIn className="rounded-3xl border border-slate-200/80 bg-slate-900 p-8 text-slate-100 dark:border-slate-700 dark:bg-slate-900">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">Engagement Model</p>
+          <h2 className="mt-3 text-3xl font-semibold">From MVP to enterprise scale, with one technology partner</h2>
+          <div className="mt-6 grid gap-4 text-sm leading-7 text-slate-300 md:grid-cols-3">
+            <p>Dedicated engineering pods tailored to your product roadmap and release cadence.</p>
+            <p>Transparent execution with sprint-based delivery, technical documentation, and architecture reviews.</p>
+            <p>Post-launch reliability support across performance, security, and feature iteration.</p>
+          </div>
+        </FadeIn>
+      </section>
+
+      <section className="py-12">
+        <FadeIn className="rounded-3xl border border-slate-200/80 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">Build with confidence</p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-900 dark:text-slate-100">
-            Ready to launch your next software ecosystem?
+            Need a software house that thinks long term?
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
-            Partner with SraSphere to ship resilient digital products that support your growth for years, not months.
+            Partner with SraSphere to architect, launch, and scale software platforms that become core business assets.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <ButtonLink href="/contact">Start a Project</ButtonLink>

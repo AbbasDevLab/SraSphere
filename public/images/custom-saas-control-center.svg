@@ -1,0 +1,33 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="28" fill="#0B1120"/>
+  <rect x="34" y="30" width="1132" height="700" rx="22" fill="#121B31"/>
+
+  <rect x="70" y="70" width="220" height="620" rx="16" fill="#1E293B"/>
+  <rect x="330" y="70" width="800" height="140" rx="16" fill="#1E293B"/>
+  <rect x="330" y="236" width="390" height="220" rx="16" fill="#1E293B"/>
+  <rect x="740" y="236" width="390" height="220" rx="16" fill="#1E293B"/>
+  <rect x="330" y="480" width="800" height="210" rx="16" fill="#1E293B"/>
+
+  <rect x="94" y="104" width="108" height="12" rx="6" fill="#64748B"/>
+  <rect x="94" y="130" width="150" height="12" rx="6" fill="#475569"/>
+  <rect x="94" y="182" width="152" height="38" rx="10" fill="#2563EB"/>
+  <rect x="94" y="242" width="152" height="38" rx="10" fill="#334155"/>
+  <rect x="94" y="302" width="152" height="38" rx="10" fill="#334155"/>
+  <rect x="94" y="362" width="152" height="38" rx="10" fill="#334155"/>
+
+  <rect x="358" y="102" width="168" height="14" rx="7" fill="#64748B"/>
+  <rect x="358" y="132" width="96" height="28" rx="14" fill="#4F46E5"/>
+  <rect x="552" y="132" width="96" height="28" rx="14" fill="#2563EB"/>
+  <rect x="746" y="132" width="96" height="28" rx="14" fill="#7C3AED"/>
+  <rect x="940" y="132" width="96" height="28" rx="14" fill="#0EA5E9"/>
+
+  <polyline points="366,410 430,360 500,384 566,322 636,336 700,278" stroke="#60A5FA" stroke-width="7" fill="none"/>
+  <polyline points="776,410 840,374 910,350 976,318 1044,300 1100,260" stroke="#A78BFA" stroke-width="7" fill="none"/>
+
+  <rect x="366" y="516" width="310" height="14" rx="7" fill="#64748B"/>
+  <rect x="366" y="544" width="742" height="10" rx="5" fill="#334155"/>
+  <rect x="366" y="568" width="742" height="10" rx="5" fill="#334155"/>
+  <rect x="366" y="592" width="742" height="10" rx="5" fill="#334155"/>
+  <rect x="366" y="628" width="172" height="34" rx="17" fill="#2563EB"/>
+  <rect x="556" y="628" width="152" height="34" rx="17" fill="#4F46E5"/>
+</svg>

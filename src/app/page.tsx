@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 import { ButtonLink } from "@/components/ui/button";
@@ -56,6 +57,12 @@ const processSteps = [
   },
 ];
 
+const deliveryMetrics = [
+  { label: "Production Releases", value: "80+" },
+  { label: "Client Satisfaction", value: "4.9/5" },
+  { label: "Avg Delivery Velocity", value: "2.4x faster" },
+];
+
 export default function HomePage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
@@ -96,16 +103,32 @@ export default function HomePage() {
             <p className="text-sm uppercase tracking-[0.2em] text-blue-100">Featured Product</p>
             <h2 className="mt-2 text-2xl font-semibold">SraSphere Orbit Suite</h2>
             <p className="mt-3 text-sm leading-6 text-blue-100">
-              A modular SaaS operating layer for sales, operations, and automated growth workflows.
+              A modular SaaS operating layer for sales, operations, and automated growth workflows with live analytics.
             </p>
-            <div className="mt-6 rounded-2xl bg-white/10 p-4">
-              <div className="h-2 w-24 rounded bg-white/80" />
-              <div className="mt-3 h-2 w-full rounded bg-white/40" />
-              <div className="mt-2 h-2 w-4/5 rounded bg-white/30" />
-              <div className="mt-6 grid grid-cols-3 gap-2">
-                <div className="h-14 rounded-lg bg-white/20" />
-                <div className="h-14 rounded-lg bg-white/20" />
-                <div className="h-14 rounded-lg bg-white/20" />
+            <div className="mt-6 overflow-hidden rounded-2xl border border-white/20 bg-slate-950/25 p-3">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10">
+                <Image
+                  src="/images/orbit-demo-reel.svg"
+                  alt="Orbit Suite product feature visual"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 560px"
+                  priority
+                />
+              </div>
+              <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+                <div className="rounded-lg bg-white/15 p-2">
+                  <p className="text-sm font-semibold">1.8M</p>
+                  <p className="text-[10px] uppercase tracking-[0.1em] text-blue-100">Events/day</p>
+                </div>
+                <div className="rounded-lg bg-white/15 p-2">
+                  <p className="text-sm font-semibold">99.98%</p>
+                  <p className="text-[10px] uppercase tracking-[0.1em] text-blue-100">Uptime</p>
+                </div>
+                <div className="rounded-lg bg-white/15 p-2">
+                  <p className="text-sm font-semibold">140ms</p>
+                  <p className="text-[10px] uppercase tracking-[0.1em] text-blue-100">Avg latency</p>
+                </div>
               </div>
             </div>
             <ButtonLink href="/products" variant="secondary" className="mt-6 border-white/40 bg-white/10 text-white hover:bg-white/20">
@@ -146,6 +169,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-8">
+        <FadeIn className="rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+          <div className="grid gap-4 md:grid-cols-3">
+            {deliveryMetrics.map((metric) => (
+              <div key={metric.label} className="rounded-xl border border-slate-200/80 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/60">
+                <p className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{metric.value}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">{metric.label}</p>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+      </section>
+
       <section className="py-12">
         <FadeIn>
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">How We Deliver</h2>
@@ -163,6 +199,28 @@ export default function HomePage() {
               />
             </FadeIn>
           ))}
+        </div>
+      </section>
+
+      <section className="py-12">
+        <FadeIn>
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">Execution Standards</h2>
+        </FadeIn>
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
+          <FadeIn className="rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Engineering Governance</h3>
+            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+              Architecture reviews, coding standards, CI quality gates, and security checklists are built into every
+              release cycle.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.05} className="rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Operational Reliability</h3>
+            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+              We design for observability, incident readiness, and resilient infrastructure so your platform scales
+              with confidence.
+            </p>
+          </FadeIn>
         </div>
       </section>
 

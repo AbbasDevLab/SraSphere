@@ -76,13 +76,13 @@ export default function ProductsPage() {
                 <p className="text-xs uppercase tracking-[0.16em] text-blue-300">Product Feature Video</p>
                 <p className="text-sm text-slate-200">Orbit Suite Demo Reel - 2m 18s</p>
               </div>
-              <button
-                type="button"
+              <a
+                href="/contact"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-semibold text-white"
               >
                 <PlayCircle className="h-4 w-4" />
                 Watch Preview
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -125,6 +125,23 @@ export default function ProductsPage() {
           </FadeIn>
         ))}
       </div>
+
+      <FadeIn className="mt-14 rounded-3xl border border-slate-200/80 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
+        <p className="text-sm uppercase tracking-[0.16em] text-blue-600 dark:text-blue-400">Deployment Ready</p>
+        <h2 className="mt-3 text-3xl font-semibold text-slate-900 dark:text-slate-100">
+          Production-grade architecture from day one
+        </h2>
+        <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600 dark:text-slate-300">
+          Every product module ships with observability hooks, role-based access, API-first design, and scalable
+          infrastructure patterns to support long-term growth.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <ButtonLink href="/contact">Request Technical Walkthrough</ButtonLink>
+          <ButtonLink href="/solutions" variant="secondary">
+            See Industry Solutions
+          </ButtonLink>
+        </div>
+      </FadeIn>
     </div>
   );
 }

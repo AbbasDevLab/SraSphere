@@ -34,6 +34,17 @@ export default function ContactPage() {
           </div>
           <p>Response time: within 24-48 business hours</p>
         </div>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <div className="rounded-xl border border-slate-200/80 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+            <p className="text-xs uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">Engagements</p>
+            <p className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">Product Build, Automation, Cloud</p>
+          </div>
+          <div className="rounded-xl border border-slate-200/80 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+            <p className="text-xs uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">Availability</p>
+            <p className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">Mon-Sat | UK & PK Timezones</p>
+          </div>
+        </div>
       </FadeIn>
 
       <FadeIn delay={0.05}>

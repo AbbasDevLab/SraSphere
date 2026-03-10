@@ -4,7 +4,12 @@ export const siteConfig = {
     "SraSphere builds scalable SaaS platforms, automation systems, and secure cloud solutions for modern businesses.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.srasphere.com",
   links: {
-    email: "hello@srasphere.com",
+    email: "team@srasphere.com",
+    phone: "+44 7435 440972",
+  },
+  studios: {
+    pakistan: "NICL, Daftarkhawan, Lahore",
+    uk: "80 West Wycombe Road, High Wycombe, HP11 2LP",
   },
   navItems: [
     { href: "/", label: "Home" },

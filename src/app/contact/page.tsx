@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/contact-form";
 import { FadeIn } from "@/components/animations/fade-in";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -15,8 +16,22 @@ export default function ContactPage() {
         <p className="mt-4 text-slate-600 dark:text-slate-300">
           Share your goals and we will help shape the right SaaS, automation, or cloud roadmap.
         </p>
-        <div className="mt-6 space-y-2 text-sm text-slate-600 dark:text-slate-300">
-          <p>Email: hello@srasphere.com</p>
+        <div className="mt-6 space-y-4 text-sm text-slate-600 dark:text-slate-300">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">Email</p>
+            <p>{siteConfig.links.email}</p>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
+              Phone / WhatsApp
+            </p>
+            <p>{siteConfig.links.phone}</p>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">Studios</p>
+            <p>Pakistan — {siteConfig.studios.pakistan}</p>
+            <p>UK — {siteConfig.studios.uk}</p>
+          </div>
           <p>Response time: within 24-48 business hours</p>
         </div>
       </FadeIn>

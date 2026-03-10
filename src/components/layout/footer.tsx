@@ -21,7 +21,7 @@ export function Footer() {
             </button>
           </form>
         </div>
-        <div className="grid gap-6 border-t border-slate-200/70 pt-6 dark:border-slate-800 md:grid-cols-3">
+        <div className="grid gap-6 border-t border-slate-200/70 pt-6 dark:border-slate-800 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="text-base font-semibold text-slate-900 dark:text-slate-100">{siteConfig.name}</p>
             <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
@@ -54,6 +54,15 @@ export function Footer() {
                   {item.label}
                 </Link>
               ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Contact</p>
+            <div className="mt-2 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+              <p>{siteConfig.links.email}</p>
+              <p>{siteConfig.links.phone}</p>
+              <p>Pakistan — {siteConfig.studios.pakistan}</p>
+              <p>UK — {siteConfig.studios.uk}</p>
             </div>
           </div>
         </div>

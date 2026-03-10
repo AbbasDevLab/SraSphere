@@ -45,7 +45,7 @@ export default function SolutionsPage() {
         {industries.map((industry, index) => (
           <FadeIn key={industry.title} delay={index * 0.05}>
             <Card title={industry.title} description={industry.description}>
-              <p className="text-sm font-medium text-blue-700 dark:text-blue-300">{industry.impact}</p>
+              <p className="text-sm font-medium text-fuchsia-700 dark:text-fuchsia-300">{industry.impact}</p>
             </Card>
           </FadeIn>
         ))}
@@ -53,7 +53,7 @@ export default function SolutionsPage() {
 
       <section className="mt-14">
         <FadeIn className="rounded-3xl border border-slate-200/80 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-sm uppercase tracking-[0.16em] text-blue-600 dark:text-blue-400">Delivery Model</p>
+          <p className="text-sm uppercase tracking-[0.16em] text-fuchsia-700 dark:text-fuchsia-400">Delivery Model</p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-900 dark:text-slate-100">
             Industry playbooks, adapted to your workflows
           </h2>

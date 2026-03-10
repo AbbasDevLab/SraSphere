@@ -68,7 +68,7 @@ export default function AboutPage() {
       </section>
 
       <FadeIn className="mt-12 rounded-3xl border border-slate-200/80 bg-slate-900 p-8 text-slate-100 dark:border-slate-700">
-        <p className="text-sm uppercase tracking-[0.16em] text-blue-300">Work With Us</p>
+        <p className="text-sm uppercase tracking-[0.16em] text-fuchsia-300">Work With Us</p>
         <h2 className="mt-3 text-3xl font-semibold">Looking for a long-term software partner?</h2>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
           We help teams launch faster, reduce technical risk, and operate mission-critical products with confidence.

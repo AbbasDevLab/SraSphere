@@ -68,7 +68,7 @@ export default function HomePage() {
     <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
       <section className="grid gap-8 py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <FadeIn>
-          <p className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700 dark:border-blue-900/60 dark:bg-blue-950/30 dark:text-blue-300">
+          <p className="inline-flex rounded-full border border-fuchsia-200 bg-fuchsia-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-fuchsia-700 dark:border-fuchsia-900/60 dark:bg-fuchsia-950/30 dark:text-fuchsia-300">
             Product Engineering Partner
           </p>
           <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl">
@@ -99,10 +99,10 @@ export default function HomePage() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="rounded-3xl border border-slate-200/80 bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700 p-8 text-white shadow-2xl shadow-blue-900/20">
-            <p className="text-sm uppercase tracking-[0.2em] text-blue-100">Featured Product</p>
+          <div className="rounded-3xl border border-slate-200/80 bg-gradient-to-br from-violet-800 via-purple-700 to-fuchsia-600 p-8 text-white shadow-2xl shadow-fuchsia-900/30">
+            <p className="text-sm uppercase tracking-[0.2em] text-fuchsia-100">Featured Product</p>
             <h2 className="mt-2 text-2xl font-semibold">SraSphere Orbit Suite</h2>
-            <p className="mt-3 text-sm leading-6 text-blue-100">
+            <p className="mt-3 text-sm leading-6 text-fuchsia-100">
               A modular SaaS operating layer for sales, operations, and automated growth workflows with live analytics.
             </p>
             <div className="mt-6 overflow-hidden rounded-2xl border border-white/20 bg-slate-950/25 p-3">
@@ -119,15 +119,15 @@ export default function HomePage() {
               <div className="mt-3 grid grid-cols-3 gap-2 text-center">
                 <div className="rounded-lg bg-white/15 p-2">
                   <p className="text-sm font-semibold">1.8M</p>
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-blue-100">Events/day</p>
+                  <p className="text-[10px] uppercase tracking-[0.1em] text-fuchsia-100">Events/day</p>
                 </div>
                 <div className="rounded-lg bg-white/15 p-2">
                   <p className="text-sm font-semibold">99.98%</p>
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-blue-100">Uptime</p>
+                  <p className="text-[10px] uppercase tracking-[0.1em] text-fuchsia-100">Uptime</p>
                 </div>
                 <div className="rounded-lg bg-white/15 p-2">
                   <p className="text-sm font-semibold">140ms</p>
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-blue-100">Avg latency</p>
+                  <p className="text-[10px] uppercase tracking-[0.1em] text-fuchsia-100">Avg latency</p>
                 </div>
               </div>
             </div>
@@ -162,7 +162,7 @@ export default function HomePage() {
               delay={0.04 * index}
               className="flex items-center gap-3 rounded-xl border border-slate-200/80 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
             >
-              <CheckCircle2 className="h-5 w-5 text-blue-600" />
+              <CheckCircle2 className="h-5 w-5 text-fuchsia-600" />
               <span className="text-sm font-medium text-slate-700 dark:text-slate-200">{item}</span>
             </FadeIn>
           ))}
@@ -226,7 +226,7 @@ export default function HomePage() {
 
       <section className="py-12">
         <FadeIn className="rounded-3xl border border-slate-200/80 bg-slate-900 p-8 text-slate-100 dark:border-slate-700 dark:bg-slate-900">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">Engagement Model</p>
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-fuchsia-300">Engagement Model</p>
           <h2 className="mt-3 text-3xl font-semibold">From MVP to enterprise scale, with one technology partner</h2>
           <div className="mt-6 grid gap-4 text-sm leading-7 text-slate-300 md:grid-cols-3">
             <p>Dedicated engineering pods tailored to your product roadmap and release cadence.</p>
@@ -238,7 +238,7 @@ export default function HomePage() {
 
       <section className="py-12">
         <FadeIn className="rounded-3xl border border-slate-200/80 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">Build with confidence</p>
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-fuchsia-700 dark:text-fuchsia-400">Build with confidence</p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-900 dark:text-slate-100">
             Need a software house that thinks long term?
           </h2>

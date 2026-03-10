@@ -29,11 +29,25 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/brand/logo-dark.png",
+        width: 1024,
+        height: 1024,
+        alt: "SraSphere logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "SraSphere",
     description: siteConfig.description,
+    images: ["/brand/logo-dark.png"],
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 };
 

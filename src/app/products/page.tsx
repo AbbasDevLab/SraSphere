@@ -73,7 +73,7 @@ export default function ProductsPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="text-xs uppercase tracking-[0.16em] text-blue-300">Product Feature Video</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-fuchsia-300">Product Feature Video</p>
                 <p className="text-sm text-slate-200">Orbit Suite Demo Reel - 2m 18s</p>
               </div>
               <a
@@ -127,7 +127,7 @@ export default function ProductsPage() {
       </div>
 
       <FadeIn className="mt-14 rounded-3xl border border-slate-200/80 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
-        <p className="text-sm uppercase tracking-[0.16em] text-blue-600 dark:text-blue-400">Deployment Ready</p>
+        <p className="text-sm uppercase tracking-[0.16em] text-fuchsia-700 dark:text-fuchsia-400">Deployment Ready</p>
         <h2 className="mt-3 text-3xl font-semibold text-slate-900 dark:text-slate-100">
           Production-grade architecture from day one
         </h2>

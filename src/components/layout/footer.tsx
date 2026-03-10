@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 export function Footer() {
   return (
@@ -11,11 +12,11 @@ export function Footer() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="h-10 w-full rounded-full border border-slate-300 bg-white px-4 text-sm outline-none ring-blue-500 focus:ring-2 dark:border-slate-700 dark:bg-slate-950"
+              className="h-10 w-full rounded-full border border-slate-300 bg-white px-4 text-sm outline-none ring-fuchsia-500 focus:ring-2 dark:border-slate-700 dark:bg-slate-950"
             />
             <button
               type="button"
-              className="h-10 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-5 text-sm font-semibold text-white"
+              className="h-10 rounded-full bg-gradient-to-r from-violet-700 via-purple-700 to-fuchsia-600 px-5 text-sm font-semibold text-white"
             >
               Subscribe
             </button>
@@ -23,7 +24,8 @@ export function Footer() {
         </div>
         <div className="grid gap-6 border-t border-slate-200/70 pt-6 dark:border-slate-800 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="text-base font-semibold text-slate-900 dark:text-slate-100">{siteConfig.name}</p>
+            <BrandLogo className="inline-block overflow-hidden rounded-md border border-slate-200/80 dark:border-slate-800" imageClassName="h-12 w-auto" />
+            <p className="mt-3 text-base font-semibold text-slate-900 dark:text-slate-100">{siteConfig.name}</p>
             <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
               Engineering secure, scalable, and maintainable software ecosystems for ambitious businesses.
             </p>

@@ -24,4 +24,33 @@ body {
     var(--bg);
   color: var(--fg);
   font-feature-settings: "rlig" 1, "calt" 1;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 40%, rgba(197, 24, 173, 0.18), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(95, 51, 231, 0.16), transparent 35%),
+    radial-gradient(circle at 50% 20%, rgba(129, 64, 236, 0.12), transparent 30%);
+  filter: blur(30px);
+  animation: auroraShift 16s ease-in-out infinite alternate;
+}
+
+::selection {
+  background: rgba(214, 24, 185, 0.24);
+}
+
+@keyframes auroraShift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2%, -2%, 0) scale(1.04);
+  }
 }

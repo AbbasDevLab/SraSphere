@@ -24,7 +24,7 @@ export function Footer() {
         </div>
         <div className="grid gap-6 border-t border-slate-200/70 pt-6 dark:border-slate-800 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <BrandLogo className="inline-block overflow-hidden rounded-md border border-slate-200/80 dark:border-slate-800" imageClassName="h-16 w-auto" />
+            <BrandLogo className="inline-block overflow-hidden rounded-md border border-slate-200/80 dark:border-slate-800" imageClassName="h-20 w-auto" />
             <p className="mt-3 text-base font-semibold text-slate-900 dark:text-slate-100">{siteConfig.name}</p>
             <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
               Engineering secure, scalable, and maintainable software ecosystems for ambitious businesses.

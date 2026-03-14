@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/brand/logo-dark.png",
-        width: 1024,
-        height: 1024,
+        url: "/brand/logo.svg",
+        width: 512,
+        height: 512,
         alt: "SraSphere logo",
       },
     ],
@@ -42,12 +42,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SraSphere",
     description: siteConfig.description,
-    images: ["/brand/logo-dark.png"],
+    images: ["/brand/logo.svg"],
   },
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    icon: "/brand/logo.svg",
+    shortcut: "/brand/logo.svg",
+    apple: "/brand/logo.svg",
   },
 };
 

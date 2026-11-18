@@ -2,56 +2,100 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Menu, X, ArrowRight } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { siteConfig } from "@/lib/site-config";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { cn } from "@/lib/utils";
-import { ButtonLink } from "@/components/ui/button";
 import { BrandLogo } from "@/components/layout/brand-logo";
 
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/70">
-      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100">
-          <BrandLogo className="overflow-hidden rounded-md border border-slate-200/80 dark:border-slate-800" imageClassName="h-16 w-auto" />
-          <span className="hidden sm:inline">{siteConfig.name}</span>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur-md transition-all duration-300",
+        scrolled ? "border-navy-900/10" : "border-transparent",
+      )}
+    >
+      <div
+        className={cn(
+          "mx-auto flex w-full max-w-7xl items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8",
+          scrolled ? "h-14" : "h-20",
+        )}
+      >
+        <Link
+          href="/"
+          aria-label="SraSphere home"
+          className="flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-500"
+        >
+          <BrandLogo />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
-          {siteConfig.navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                pathname === item.href
-                  ? "bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-100"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100",
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+          {siteConfig.navItems.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "relative rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500",
+                  active ? "text-navy-900" : "text-slate-600 hover:text-navy-900",
+                )}
+              >
+                {item.label}
+                {active ? (
+                  <motion.span
+                    layoutId="nav-indicator"
+                    transition={
+                      reduceMotion
+                        ? { duration: 0 }
+                        : { type: "spring", stiffness: 380, damping: 32 }
+                    }
+                    className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-cyan-500"
+                  />
+                ) : null}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <ButtonLink href="/contact" className="hidden h-10 px-4 text-xs md:inline-flex">
-            Book Consultation
-          </ButtonLink>
-          <ThemeToggle />
+        <div className="flex items-center gap-3">
+          <Link
+            href="/contact"
+            className="hidden h-10 items-center gap-2 rounded-full bg-navy-900 px-5 text-sm font-semibold text-white transition-colors hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500 md:inline-flex"
+          >
+            Let&apos;s Talk
+            <ArrowRight className="h-4 w-4" />
+          </Link>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300/80 md:hidden dark:border-slate-700"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-navy-900/10 text-navy-900 transition hover:bg-navy-50 md:hidden"
             onClick={() => setIsOpen((prev) => !prev)}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
-            {isOpen ? <X size={18} /> : <Menu size={18} />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -59,30 +103,36 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen ? (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, height: "auto" }}
             animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="border-t border-slate-200/70 bg-white px-4 py-4 md:hidden dark:border-slate-800 dark:bg-slate-950"
+            exit={{ opacity: 0, height: "auto" }}
+            transition={reduceMotion ? { duration: 0 } : { duration: 0.25, ease: "easeOut" }}
+            className="overflow-hidden border-t border-navy-900/10 bg-white md:hidden"
           >
-            <nav className="flex flex-col gap-2">
+            <nav className="space-y-1 px-4 py-4" aria-label="Mobile navigation">
               {siteConfig.navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm font-medium",
+                    "block rounded-lg px-3 py-2.5 text-base font-medium",
                     pathname === item.href
-                      ? "bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-100"
-                      : "text-slate-700 dark:text-slate-300",
+                      ? "bg-navy-50 text-navy-900"
+                      : "text-slate-600 hover:bg-navy-50 hover:text-navy-900",
                   )}
                 >
                   {item.label}
                 </Link>
               ))}
-              <ButtonLink href="/contact" className="mt-2">
-                Book Consultation
-              </ButtonLink>
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className="mt-2 flex h-11 items-center justify-center gap-2 rounded-full bg-navy-900 text-sm font-semibold text-white"
+              >
+                Let&apos;s Talk
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </nav>
           </motion.div>
         ) : null}

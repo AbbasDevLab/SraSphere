@@ -2,55 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: #f7f7fc;
-  --fg: #170f2f;
-}
-
-.dark {
-  --bg: #070015;
-  --fg: #f1eefc;
-}
-
-html,
-body {
-  min-height: 100%;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background:
-    radial-gradient(circle at 20% 0%, rgba(162, 28, 175, 0.12), transparent 35%),
-    radial-gradient(circle at 90% 10%, rgba(108, 34, 199, 0.12), transparent 30%),
-    var(--bg);
-  color: var(--fg);
+  @apply bg-white font-sans text-charcoal antialiased;
   font-feature-settings: "rlig" 1, "calt" 1;
-  position: relative;
-  overflow-x: hidden;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: -20%;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 15% 40%, rgba(197, 24, 173, 0.18), transparent 30%),
-    radial-gradient(circle at 80% 70%, rgba(95, 51, 231, 0.16), transparent 35%),
-    radial-gradient(circle at 50% 20%, rgba(129, 64, 236, 0.12), transparent 30%);
-  filter: blur(30px);
-  animation: auroraShift 16s ease-in-out infinite alternate;
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading tracking-tight;
 }
 
 ::selection {
-  background: rgba(214, 24, 185, 0.24);
+  background: rgba(115, 213, 233, 0.35);
+  color: #101827;
 }
 
-@keyframes auroraShift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  100% {
-    transform: translate3d(2%, -2%, 0) scale(1.04);
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

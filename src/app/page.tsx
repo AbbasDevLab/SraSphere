@@ -1,258 +1,431 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
-import { ButtonLink } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { OrbitalSphere } from "@/components/visuals/orbital-sphere";
+import { serviceCategories } from "@/lib/services";
+import { projects } from "@/lib/projects";
+import { insights } from "@/lib/insights";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: "SraSphere builds modern SaaS and cloud software ecosystems.",
+  title: "SraSphere | Software Development & Digital Transformation Company",
+  description:
+    "SraSphere helps startups and growing businesses build websites, e-commerce stores, business software and automation. Technology. Simplified. Business. Amplified.",
+  alternates: { canonical: "/" },
 };
 
-const offerings = [
+const benefits = [
   {
-    title: "SaaS Platforms",
-    description:
-      "End-to-end product engineering for high-growth SaaS products with resilient architecture and maintainable code.",
+    title: "Business-first thinking",
+    description: "We start with your objectives, not with a technology preference.",
   },
   {
-    title: "Business Automation",
-    description:
-      "Workflow systems that remove repetitive operations and connect teams, data, and decision points in real time.",
+    title: "Practical technology solutions",
+    description: "Right-sized systems that solve the problem without over-engineering.",
   },
   {
-    title: "Secure Cloud Systems",
-    description:
-      "Cloud-native solutions designed for observability, security controls, and long-term scale.",
-  },
-];
-
-const highlights = [
-  "Scalable Architecture",
-  "Security-First Approach",
-  "Modern Tech Stack",
-  "Long-Term Product Vision",
-];
-
-const stats = [
-  { value: "99.9%", label: "Target Platform Uptime" },
-  { value: "< 200ms", label: "Optimized API Response Goal" },
-  { value: "24/7", label: "Infrastructure Observability" },
-  { value: "Enterprise", label: "Security & Compliance Mindset" },
-];
-
-const processSteps = [
-  {
-    title: "Discovery & System Blueprint",
-    description: "We map product goals, architecture constraints, and growth requirements into a clear technical plan.",
+    title: "Transparent collaboration",
+    description: "Clear scope, visible progress and honest communication throughout.",
   },
   {
-    title: "Build & Integrate",
-    description: "Our engineers ship modular services, polished interfaces, and reliable integrations with your existing stack.",
-  },
-  {
-    title: "Scale & Evolve",
-    description: "We continue with optimization, security hardening, and feature expansion to support long-term product maturity.",
+    title: "Long-term support",
+    description: "We stay after launch to maintain, improve and evolve what we build.",
   },
 ];
 
-const deliveryMetrics = [
-  { label: "Production Releases", value: "80+" },
-  { label: "Client Satisfaction", value: "4.9/5" },
-  { label: "Avg Delivery Velocity", value: "2.4x faster" },
+const approachSteps = [
+  { number: "01", title: "Discover", description: "Understand the business, challenges and requirements." },
+  { number: "02", title: "Strategize", description: "Define the solution, scope and implementation roadmap." },
+  { number: "03", title: "Develop", description: "Design, build and integrate the agreed solution." },
+  { number: "04", title: "Deliver", description: "Test, launch and hand over the completed project." },
+  { number: "05", title: "Support", description: "Maintain, improve and evolve the solution." },
 ];
+
+const whyPoints = [
+  "Understanding business objectives before recommending technology.",
+  "Solutions tailored to actual requirements.",
+  "Clear communication and project visibility.",
+  "Practical and scalable implementations.",
+  "Ongoing technical assistance.",
+];
+
+// Structured data: Organization + services
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  areaServed: ["Pakistan", "United Kingdom", "United Arab Emirates"],
+  slogan: siteConfig.tagline,
+};
 
 export default function HomePage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-      <section className="grid gap-8 py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <FadeIn>
-          <p className="inline-flex rounded-full border border-fuchsia-200 bg-fuchsia-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-fuchsia-700 dark:border-fuchsia-900/60 dark:bg-fuchsia-950/30 dark:text-fuchsia-300">
-            Product Engineering Partner
-          </p>
-          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl">
-            Powering Intelligent Digital Ecosystems
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-            We build scalable SaaS platforms, automation systems, and secure cloud solutions for modern businesses.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/products">Explore Products</ButtonLink>
-            <ButtonLink href="/contact" variant="secondary">
-              Contact Us
-            </ButtonLink>
-          </div>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-xl border border-slate-200/80 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+
+      {/* SECTION 1: HERO */}
+      <section className="relative overflow-hidden bg-navy-900 bg-hero-grid">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(115,213,233,0.12),transparent_55%)]" />
+        <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-4 pb-20 pt-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:pb-28 lg:pt-24">
+          <FadeIn>
+            <p className="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
+              Your Digital Technology Partner
+            </p>
+            <h1 className="mt-6 text-4xl font-semibold leading-[1.12] text-white sm:text-5xl lg:text-6xl">
+              Turning Business Challenges Into Digital Solutions.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy-100">
+              We help businesses establish their digital presence, streamline operations and build
+              technology that supports long-term growth.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex h-12 items-center gap-2 rounded-full bg-cyan-300 px-7 text-sm font-semibold text-navy-900 transition-all hover:bg-cyan-200 hover:shadow-lg hover:shadow-cyan-300/25"
               >
-                <p className="text-xl font-semibold text-slate-900 dark:text-slate-100">{stat.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
-                  {stat.label}
-                </p>
-              </div>
+                Start a Project
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex h-12 items-center gap-2 rounded-full border border-white/25 px-7 text-sm font-semibold text-white transition-all hover:border-cyan-300/60 hover:bg-white/5"
+              >
+                Explore Our Services
+              </Link>
+            </div>
+            <p className="mt-10 text-xs font-medium uppercase tracking-[0.2em] text-navy-300">
+              {siteConfig.tagline}
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <OrbitalSphere />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* SECTION 2: INTRODUCTION */}
+      <section className="bg-cloud py-20 lg:py-28">
+        <div className="mx-auto grid w-full max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Introduction"
+              title="Technology That Works for Your Business."
+              description="Every business has different challenges. We bring together technology, strategy and practical execution to create solutions that make everyday operations simpler and business growth more achievable."
+            />
+          </FadeIn>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {benefits.map((benefit, index) => (
+              <FadeIn key={benefit.title} delay={index * 0.06}>
+                <div className="h-full rounded-xl border border-navy-900/10 bg-white p-6 transition-shadow hover:shadow-lg hover:shadow-navy-900/5">
+                  <CheckCircle2 className="h-5 w-5 text-cyan-600" />
+                  <h3 className="mt-4 font-semibold text-navy-900">{benefit.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{benefit.description}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
-        </FadeIn>
+        </div>
+      </section>
 
-        <FadeIn delay={0.1}>
-          <div className="rounded-3xl border border-slate-200/80 bg-gradient-to-br from-violet-800 via-purple-700 to-fuchsia-600 p-8 text-white shadow-2xl shadow-fuchsia-900/30">
-            <p className="text-sm uppercase tracking-[0.2em] text-fuchsia-100">Featured Product</p>
-            <h2 className="mt-2 text-2xl font-semibold">SraSphere Orbit Suite</h2>
-            <p className="mt-3 text-sm leading-6 text-fuchsia-100">
-              A modular SaaS operating layer for sales, operations, and automated growth workflows with live analytics.
-            </p>
-            <div className="mt-6 overflow-hidden rounded-2xl border border-white/20 bg-slate-950/25 p-3">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10">
-                <Image
-                  src="/images/orbit-demo-reel.svg"
-                  alt="Orbit Suite product feature visual"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 560px"
-                  priority
-                />
-              </div>
-              <div className="mt-3 grid grid-cols-3 gap-2 text-center">
-                <div className="rounded-lg bg-white/15 p-2">
-                  <p className="text-sm font-semibold">1.8M</p>
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-fuchsia-100">Events/day</p>
-                </div>
-                <div className="rounded-lg bg-white/15 p-2">
-                  <p className="text-sm font-semibold">99.98%</p>
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-fuchsia-100">Uptime</p>
-                </div>
-                <div className="rounded-lg bg-white/15 p-2">
-                  <p className="text-sm font-semibold">140ms</p>
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-fuchsia-100">Avg latency</p>
-                </div>
+      {/* SECTION 3: SERVICES */}
+      <section className="py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Services"
+              title="Solutions Designed Around Your Business."
+              description="Four connected practices, one accountable team. Every engagement starts with understanding what your business actually needs."
+            />
+          </FadeIn>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {serviceCategories.map((category, index) => (
+              <FadeIn key={category.id} delay={index * 0.06}>
+                <article className="group flex h-full flex-col rounded-2xl border border-navy-900/10 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/50 hover:shadow-xl hover:shadow-navy-900/8">
+                  <div className="flex items-center justify-between">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy-900 text-cyan-300">
+                      <category.icon className="h-6 w-6" />
+                    </div>
+                    <span className="font-heading text-4xl font-bold text-navy-900/8">{category.number}</span>
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold text-navy-900">{category.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{category.shortDescription}</p>
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {category.services.slice(0, 4).map((service) => (
+                      <li
+                        key={service}
+                        className="rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-700"
+                      >
+                        {service}
+                      </li>
+                    ))}
+                    {category.services.length > 4 ? (
+                      <li className="rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-500">
+                        +{category.services.length - 4} more
+                      </li>
+                    ) : null}
+                  </ul>
+                  <Link
+                    href={`/services#${category.id}`}
+                    className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-cyan-600 transition-colors hover:text-cyan-700"
+                  >
+                    Explore Solutions
+                    <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </article>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: FEATURED WORK */}
+      <section className="bg-navy-900 py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <SectionHeading
+                dark
+                eyebrow="Our Work"
+                title="Turning Ideas Into Practical Solutions."
+                description="Selected projects from our academic, internal and concept work — each one built around a real business problem."
+              />
+              <Link
+                href="/work"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
+              >
+                View all work
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </FadeIn>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {projects.map((project, index) => (
+              <FadeIn key={project.slug} delay={index * 0.08}>
+                <Link
+                  href={`/work/${project.slug}`}
+                  className="group block h-full overflow-hidden rounded-2xl border border-white/10 bg-navy-800 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/40"
+                >
+                  <div
+                    className="relative aspect-[16/10] overflow-hidden"
+                    style={{
+                      background: `linear-gradient(135deg, ${project.mockup.accent}22, #101827 60%)`,
+                    }}
+                  >
+                    <MockupGraphic type={project.mockup.type} accent={project.mockup.accent} />
+                    <div className="absolute inset-0 bg-navy-900/0 transition-colors duration-300 group-hover:bg-navy-900/20" />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                      {project.reference} — {project.categoryLabel}
+                    </p>
+                    <h3 className="mt-3 text-lg font-semibold text-white">{project.title}</h3>
+                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-navy-100">
+                      {project.cardDescription}
+                    </p>
+                  </div>
+                </Link>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: OUR APPROACH */}
+      <section className="py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Our Approach"
+              title="From Business Challenge to Digital Solution."
+              align="center"
+              className="max-w-3xl"
+            />
+          </FadeIn>
+
+          {/* Desktop: horizontal timeline */}
+          <div className="mt-16 hidden lg:block">
+            <div className="relative">
+              <div className="absolute left-0 right-0 top-[7px] h-px bg-navy-900/15" />
+              <div className="grid grid-cols-5 gap-6">
+                {approachSteps.map((step, index) => (
+                  <FadeIn key={step.number} delay={index * 0.08}>
+                    <div className="relative">
+                      <div className="h-[15px] w-[15px] rounded-full border-2 border-cyan-500 bg-white" />
+                      <p className="mt-5 font-heading text-sm font-bold text-cyan-600">{step.number}</p>
+                      <h3 className="mt-1 font-semibold text-navy-900">{step.title}</h3>
+                      <p className="mt-2 pr-4 text-sm leading-relaxed text-slate-600">{step.description}</p>
+                    </div>
+                  </FadeIn>
+                ))}
               </div>
             </div>
-            <ButtonLink href="/products" variant="secondary" className="mt-6 border-white/40 bg-white/10 text-white hover:bg-white/20">
-              View Product Details <ArrowRight className="ml-2 h-4 w-4" />
-            </ButtonLink>
           </div>
-        </FadeIn>
-      </section>
 
-      <section className="py-12">
-        <FadeIn>
-          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">Core Offerings</h2>
-        </FadeIn>
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
-          {offerings.map((offering, index) => (
-            <FadeIn key={offering.title} delay={0.05 * index}>
-              <Card title={offering.title} description={offering.description} />
-            </FadeIn>
-          ))}
+          {/* Mobile: vertical timeline */}
+          <div className="relative mt-12 lg:hidden">
+            <div className="absolute bottom-2 left-[7px] top-2 w-px bg-navy-900/15" />
+            <div className="space-y-8">
+              {approachSteps.map((step, index) => (
+                <FadeIn key={step.number} delay={index * 0.05}>
+                  <div className="relative pl-10">
+                    <div className="absolute left-0 top-1 h-[15px] w-[15px] rounded-full border-2 border-cyan-500 bg-white" />
+                    <p className="font-heading text-sm font-bold text-cyan-600">{step.number}</p>
+                    <h3 className="mt-1 font-semibold text-navy-900">{step.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{step.description}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="py-12">
-        <FadeIn>
-          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">Why Choose SraSphere</h2>
-        </FadeIn>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {highlights.map((item, index) => (
-            <FadeIn
-              key={item}
-              delay={0.04 * index}
-              className="flex items-center gap-3 rounded-xl border border-slate-200/80 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
-            >
-              <CheckCircle2 className="h-5 w-5 text-fuchsia-600" />
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-200">{item}</span>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-
-      <section className="py-8">
-        <FadeIn className="rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-          <div className="grid gap-4 md:grid-cols-3">
-            {deliveryMetrics.map((metric) => (
-              <div key={metric.label} className="rounded-xl border border-slate-200/80 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/60">
-                <p className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{metric.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">{metric.label}</p>
-              </div>
+      {/* SECTION 6: WHY SRASPHERE */}
+      <section className="bg-cloud py-20 lg:py-28">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Why SraSphere"
+              title="More Than Technology. A Better Way Forward."
+              description="Plenty of companies can write software. Fewer take the time to understand what the software is for. That difference shapes everything we build."
+            />
+          </FadeIn>
+          <div className="space-y-4">
+            {whyPoints.map((point, index) => (
+              <FadeIn key={point} delay={index * 0.06}>
+                <div className="flex items-start gap-4 rounded-xl border border-navy-900/10 bg-white p-5">
+                  <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cyan-100 text-xs font-bold text-cyan-700">
+                    {index + 1}
+                  </span>
+                  <p className="leading-relaxed text-navy-900">{point}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
-        </FadeIn>
+        </div>
       </section>
 
-      <section className="py-12">
-        <FadeIn>
-          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">How We Deliver</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
-            Our process is designed for clarity, velocity, and measurable business outcomes.
-          </p>
-        </FadeIn>
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <FadeIn key={step.title} delay={0.05 * index}>
-              <Card
-                title={step.title}
-                description={step.description}
-                className="h-full border-slate-300/80 dark:border-slate-800"
+      {/* SECTION 7: INSIGHTS */}
+      <section className="py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <SectionHeading
+                eyebrow="Insights"
+                title="Perspectives on Technology and Business."
               />
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-
-      <section className="py-12">
-        <FadeIn>
-          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">Execution Standards</h2>
-        </FadeIn>
-        <div className="mt-6 grid gap-5 md:grid-cols-2">
-          <FadeIn className="rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Engineering Governance</h3>
-            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              Architecture reviews, coding standards, CI quality gates, and security checklists are built into every
-              release cycle.
-            </p>
+              <Link
+                href="/insights"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-600 transition hover:text-cyan-700"
+              >
+                All insights
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </FadeIn>
-          <FadeIn delay={0.05} className="rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Operational Reliability</h3>
-            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              We design for observability, incident readiness, and resilient infrastructure so your platform scales
-              with confidence.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      <section className="py-12">
-        <FadeIn className="rounded-3xl border border-slate-200/80 bg-slate-900 p-8 text-slate-100 dark:border-slate-700 dark:bg-slate-900">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-fuchsia-300">Engagement Model</p>
-          <h2 className="mt-3 text-3xl font-semibold">From MVP to enterprise scale, with one technology partner</h2>
-          <div className="mt-6 grid gap-4 text-sm leading-7 text-slate-300 md:grid-cols-3">
-            <p>Dedicated engineering pods tailored to your product roadmap and release cadence.</p>
-            <p>Transparent execution with sprint-based delivery, technical documentation, and architecture reviews.</p>
-            <p>Post-launch reliability support across performance, security, and feature iteration.</p>
-          </div>
-        </FadeIn>
-      </section>
-
-      <section className="py-12">
-        <FadeIn className="rounded-3xl border border-slate-200/80 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-fuchsia-700 dark:text-fuchsia-400">Build with confidence</p>
-          <h2 className="mt-3 text-3xl font-semibold text-slate-900 dark:text-slate-100">
-            Need a software house that thinks long term?
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
-            Partner with SraSphere to architect, launch, and scale software platforms that become core business assets.
+          <p className="mt-4 text-xs font-medium uppercase tracking-[0.16em] text-slate-500">
+            Editorial previews — full articles coming soon
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <ButtonLink href="/contact">Start a Project</ButtonLink>
-            <ButtonLink href="/solutions" variant="secondary">
-              View Solutions
-            </ButtonLink>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {insights.map((insight, index) => (
+              <FadeIn key={insight.slug} delay={index * 0.07}>
+                <Link
+                  href={`/insights#${insight.slug}`}
+                  className="group flex h-full flex-col rounded-2xl border border-navy-900/10 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/50 hover:shadow-lg hover:shadow-navy-900/5"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-600">
+                    {insight.topic}
+                  </p>
+                  <h3 className="mt-4 text-lg font-semibold leading-snug text-navy-900">
+                    {insight.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{insight.description}</p>
+                  <p className="mt-auto pt-5 text-xs text-slate-400">{insight.readTime}</p>
+                </Link>
+              </FadeIn>
+            ))}
           </div>
-        </FadeIn>
+        </div>
       </section>
+
+      {/* SECTION 8: FINAL CTA */}
+      <section className="bg-navy-900 bg-hero-grid py-20 lg:py-28">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <FadeIn>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
+              Let&apos;s Talk
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-5xl">
+              Have a Business Challenge in Mind?
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-navy-100">
+              Let&apos;s explore how the right technology can help your business move forward.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-9 inline-flex h-12 items-center gap-2 rounded-full bg-cyan-300 px-8 text-sm font-semibold text-navy-900 transition-all hover:bg-cyan-200 hover:shadow-lg hover:shadow-cyan-300/25"
+            >
+              Let&apos;s Talk About Your Project
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </FadeIn>
+        </div>
+      </section>
+    </>
+  );
+}
+
+// Decorative abstract UI mockup used on work cards (no stock imagery).
+function MockupGraphic({ type, accent }: { type: "dashboard" | "storefront" | "operations"; accent: string }) {
+  if (type === "storefront") {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center gap-4 px-8">
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            className={`rounded-md ${i === 1 ? "h-24 w-20 opacity-90" : "h-16 w-14 opacity-50"}`}
+            style={{ background: `${accent}55`, border: `1px solid ${accent}88` }}
+          />
+        ))}
+      </div>
+    );
+  }
+  if (type === "operations") {
+    return (
+      <div className="absolute inset-0 flex flex-col justify-center gap-2 px-8">
+        {[0, 1, 2, 3].map((i) => (
+          <div key={i} className="flex items-center gap-2">
+            <div className="h-2.5 w-2.5 rounded-full" style={{ background: `${accent}88` }} />
+            <div
+              className="h-2 rounded-full"
+              style={{ width: `${70 - i * 12}%`, background: `${accent}44` }}
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return (
+    <div className="absolute inset-0 flex items-end gap-3 px-10 pb-10">
+      {[35, 55, 42, 70, 58, 85].map((h, i) => (
+        <div
+          key={i}
+          className="flex-1 rounded-t-sm"
+          style={{
+            height: `${h}%`,
+            background: i === 5 ? accent : `${accent}55`,
+            border: `1px solid ${accent}66`,
+          }}
+        />
+      ))}
     </div>
   );
 }

@@ -1,26 +1,48 @@
 export const siteConfig = {
   name: "SraSphere",
+  tagline: "Technology. Simplified. Business. Amplified.",
   description:
-    "SraSphere builds scalable SaaS platforms, automation systems, and secure cloud solutions for modern businesses.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.srasphere.com",
-  links: {
-    email: "team@srasphere.com",
-    phone: "+44 7435 440972",
-  },
-  studios: {
-    pakistan: "NICL, Daftarkhawan, Lahore",
-    uk: "80 West Wycombe Road, High Wycombe, HP11 2LP",
+    "SraSphere is a technology solutions company helping startups and growing businesses build digital experiences, streamline operations and adopt modern technology.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://srasphere.com",
+  // Editable placeholders — replace with live details before launch.
+  contact: {
+    // TODO: replace with the real business email when supplied.
+    email: "hello@srasphere.com",
+    // TODO: replace with the real WhatsApp number (digits only, with country code) when supplied.
+    whatsappNumber: "",
+    whatsappDisplay: "",
+    // TODO: replace with the real LinkedIn page URL when supplied.
+    linkedin: "",
+    // TODO: replace with the real Instagram page URL when supplied.
+    instagram: "",
   },
   navItems: [
     { href: "/", label: "Home" },
-    { href: "/products", label: "Products" },
-    { href: "/solutions", label: "Solutions" },
+    { href: "/services", label: "Services" },
+    { href: "/work", label: "Our Work" },
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/insights", label: "Insights" },
   ],
   legalItems: [
     { href: "/legal/privacy-policy", label: "Privacy Policy" },
     { href: "/legal/terms-of-service", label: "Terms of Service" },
-    { href: "/legal/refund-policy", label: "Refund Policy" },
   ],
-};
+} as const;
+
+export const serviceOptions = [
+  "Website Development",
+  "E-commerce Development",
+  "Business Software",
+  "ERP / CRM / POS",
+  "Custom Software",
+  "Automation / AI",
+  "Other",
+] as const;
+
+export const budgetOptions = [
+  "Under $500",
+  "$500-$1,000",
+  "$1,000-$3,000",
+  "$3,000-$5,000",
+  "$5,000+",
+] as const;

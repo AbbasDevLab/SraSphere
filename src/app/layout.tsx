@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 import { Navbar } from "@/components/layout/navbar";
@@ -10,20 +10,20 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "SraSphere | Intelligent Digital Ecosystems",
+    default: "SraSphere | Digital Solutions Studio",
     template: "%s | SraSphere",
   },
   description: siteConfig.description,
   openGraph: {
-    title: "SraSphere",
+    title: "SraSphere | Digital Solutions Studio",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -31,23 +31,23 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/brand/logo.svg",
-        width: 512,
-        height: 512,
-        alt: "SraSphere logo",
+        url: "/brand/srasphere-wordmark.png",
+        width: 2000,
+        height: 667,
+        alt: "SraSphere Digital Solutions Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SraSphere",
+    title: "SraSphere | Digital Solutions Studio",
     description: siteConfig.description,
-    images: ["/brand/logo.svg"],
+    images: ["/brand/srasphere-wordmark.png"],
   },
   icons: {
-    icon: "/brand/logo.svg",
-    shortcut: "/brand/logo.svg",
-    apple: "/brand/logo.svg",
+    icon: "/brand/srasphere-mark.png",
+    shortcut: "/brand/srasphere-mark.png",
+    apple: "/brand/srasphere-mark.png",
   },
 };
 
@@ -57,25 +57,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const stored = localStorage.getItem("theme");
-                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                if (stored === "dark" || (!stored && prefersDark)) {
-                  document.documentElement.classList.add("dark");
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} bg-slate-50 font-sans antialiased dark:bg-slate-950`}
-      >
+    <html lang="en">
+      <body className={`${inter.variable} ${manrope.variable} antialiased`}>
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>

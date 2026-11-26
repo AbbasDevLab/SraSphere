@@ -1,6 +1,6 @@
 # SraSphere Website
 
-Modern startup-style website for **SraSphere**, built with:
+Responsive digital-solutions studio website for **SraSphere**, built with:
 
 - Next.js 14 (App Router)
 - TypeScript
@@ -16,17 +16,14 @@ Modern startup-style website for **SraSphere**, built with:
 npm install
 ```
 
-2. Set environment variables:
+2. Optional environment variables:
 
 ```bash
-cp .env.example .env.local
+NEXT_PUBLIC_SITE_URL=https://www.srasphere.com
+NEXT_PUBLIC_WHATSAPP_NUMBER=
 ```
 
-On Windows PowerShell:
-
-```powershell
-Copy-Item .env.example .env.local
-```
+Set these in `.env.local` for local development or in the deployment environment. Configure the WhatsApp number in international format using digits only, including its country code; the WhatsApp contact option is hidden until a number is configured.
 
 3. Run the development server:
 
@@ -44,6 +41,10 @@ npm run build
 npm run start
 ```
 
+## Contact enquiries
+
+The contact form validates project details and opens the visitor's email application with a pre-addressed message to `hello@srasphere.com`. The visitor reviews and sends the email from their own account; no server-side email provider is configured in this repository.
+
 ## Project Structure
 
 ```text
@@ -51,14 +52,14 @@ src/
   app/
     api/stripe/route.ts
     about/
-    blog/
     contact/
+    insights/
     legal/
       privacy-policy/
       refund-policy/
       terms-of-service/
-    products/
-    solutions/
+    services/
+    work/
     layout.tsx
     page.tsx
     robots.ts
@@ -69,16 +70,17 @@ src/
     layout/
     ui/
   lib/
+    content.ts
     site-config.ts
     utils.ts
 ```
 
 ## Notes
 
-- Theme support includes light/dark mode toggle.
-- Contact form is validated with React Hook Form.
+- Service and article detail pages are generated from `src/lib/content.ts`.
+- Contact form validation uses React Hook Form.
 - Stripe API route is a placeholder for future subscription checkout logic.
-- `blog` route is included as a starter structure.
+- Legacy `/blog`, `/products`, and `/solutions` paths redirect to the current content sections.
 
 ## Learn More
 

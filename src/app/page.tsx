@@ -1,258 +1,384 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { FadeIn } from "@/components/animations/fade-in";
+import Link from "next/link";
+import {
+  ArrowDownRight,
+  ArrowRight,
+  BriefcaseBusiness,
+  Building2,
+  Check,
+  Cloud,
+  Code2,
+  Globe2,
+  HeartPulse,
+  Smartphone,
+  ShoppingBag,
+  Store,
+  Workflow,
+} from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { services, projects } from "@/lib/content";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: "SraSphere builds modern SaaS and cloud software ecosystems.",
+  title: "Digital Solutions for Growing Businesses",
+  description: siteConfig.description,
 };
 
-const offerings = [
+const principles = [
   {
-    title: "SaaS Platforms",
-    description:
-      "End-to-end product engineering for high-growth SaaS products with resilient architecture and maintainable code.",
+    number: "01",
+    title: "Business-first thinking",
+    description: "We begin with your goals and challenges, not a predetermined technology stack.",
   },
   {
-    title: "Business Automation",
-    description:
-      "Workflow systems that remove repetitive operations and connect teams, data, and decision points in real time.",
+    number: "02",
+    title: "Practical solutions",
+    description: "The right-sized approach for the problem, your team and the way you work.",
   },
   {
-    title: "Secure Cloud Systems",
-    description:
-      "Cloud-native solutions designed for observability, security controls, and long-term scale.",
-  },
-];
-
-const highlights = [
-  "Scalable Architecture",
-  "Security-First Approach",
-  "Modern Tech Stack",
-  "Long-Term Product Vision",
-];
-
-const stats = [
-  { value: "99.9%", label: "Target Platform Uptime" },
-  { value: "< 200ms", label: "Optimized API Response Goal" },
-  { value: "24/7", label: "Infrastructure Observability" },
-  { value: "Enterprise", label: "Security & Compliance Mindset" },
-];
-
-const processSteps = [
-  {
-    title: "Discovery & System Blueprint",
-    description: "We map product goals, architecture constraints, and growth requirements into a clear technical plan.",
-  },
-  {
-    title: "Build & Integrate",
-    description: "Our engineers ship modular services, polished interfaces, and reliable integrations with your existing stack.",
-  },
-  {
-    title: "Scale & Evolve",
-    description: "We continue with optimization, security hardening, and feature expansion to support long-term product maturity.",
+    number: "03",
+    title: "Long-term growth",
+    description: "Thoughtful foundations that can adapt as your business and needs change.",
   },
 ];
 
-const deliveryMetrics = [
-  { label: "Production Releases", value: "80+" },
-  { label: "Client Satisfaction", value: "4.9/5" },
-  { label: "Avg Delivery Velocity", value: "2.4x faster" },
+const industries = [
+  { title: "Healthcare & clinics", description: "Make information and appointment journeys clearer.", icon: HeartPulse },
+  { title: "Restaurants & cafes", description: "Support discovery, ordering and day-to-day operations.", icon: Store },
+  { title: "Real estate", description: "Present properties and connect enquiries with your team.", icon: Building2 },
+  { title: "E-commerce", description: "Create a considered online shopping experience.", icon: ShoppingBag },
+  { title: "Professional services", description: "Help clients understand your expertise and get in touch.", icon: BriefcaseBusiness },
+  { title: "Growing businesses", description: "Connect useful technology with the way your business works.", icon: Workflow },
+];
+
+const process = [
+  { number: "01", title: "Discover", description: "Understand your business, objectives and requirements." },
+  { number: "02", title: "Design", description: "Plan the experience and technical solution around your needs." },
+  { number: "03", title: "Develop", description: "Build, test and refine the agreed solution together." },
+  { number: "04", title: "Launch", description: "Deploy the finished work and provide agreed support." },
+];
+
+const serviceIcons = {
+  website: Globe2,
+  ecommerce: ShoppingBag,
+  automation: Workflow,
+  mobile: Smartphone,
+  custom: Code2,
+  cloud: Cloud,
+};
+
+const reasons = [
+  "Solutions shaped around your business requirements.",
+  "Modern, responsive experiences built for real people.",
+  "Practical technology with room to scale.",
+  "Clear communication from discovery to delivery.",
+  "A focus on usability and meaningful business outcomes.",
 ];
 
 export default function HomePage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-      <section className="grid gap-8 py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <FadeIn>
-          <p className="inline-flex rounded-full border border-fuchsia-200 bg-fuchsia-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-fuchsia-700 dark:border-fuchsia-900/60 dark:bg-fuchsia-950/30 dark:text-fuchsia-300">
-            Product Engineering Partner
-          </p>
-          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl">
-            Powering Intelligent Digital Ecosystems
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-            We build scalable SaaS platforms, automation systems, and secure cloud solutions for modern businesses.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/products">Explore Products</ButtonLink>
-            <ButtonLink href="/contact" variant="secondary">
-              Contact Us
-            </ButtonLink>
-          </div>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-xl border border-slate-200/80 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
+    <>
+      <section className="relative isolate overflow-hidden bg-[#0B1320] text-white">
+        <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-30" />
+        <div aria-hidden="true" className="absolute -right-36 -top-56 h-[35rem] w-[35rem] rounded-full bg-blue-600/20 blur-[100px]" />
+        <div className="relative mx-auto grid min-h-0 w-full max-w-7xl items-center gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:min-h-[570px] lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
+          <div className="relative z-10 max-w-2xl">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-300/25 bg-blue-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-200">
+              <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
+              Your Digital Technology Partner
+            </p>
+            <h1 className="text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl lg:text-[3.6rem]">
+              Turning Business Challenges Into{" "}
+              <span className="bg-gradient-to-r from-blue-300 to-cyan-200 bg-clip-text text-transparent">
+                Digital Solutions.
+              </span>
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+              We help businesses establish their digital presence, streamline operations and build technology that
+              supports long-term growth.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href="/contact" className="gap-2">
+                Start a Project <ArrowRight aria-hidden="true" size={16} />
+              </ButtonLink>
+              <ButtonLink
+                href="/services"
+                variant="secondary"
+                className="border-white/20 bg-white/5 text-white hover:border-white/40 hover:bg-white/10"
               >
-                <p className="text-xl font-semibold text-slate-900 dark:text-slate-100">{stat.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.1}>
-          <div className="rounded-3xl border border-slate-200/80 bg-gradient-to-br from-violet-800 via-purple-700 to-fuchsia-600 p-8 text-white shadow-2xl shadow-fuchsia-900/30">
-            <p className="text-sm uppercase tracking-[0.2em] text-fuchsia-100">Featured Product</p>
-            <h2 className="mt-2 text-2xl font-semibold">SraSphere Orbit Suite</h2>
-            <p className="mt-3 text-sm leading-6 text-fuchsia-100">
-              A modular SaaS operating layer for sales, operations, and automated growth workflows with live analytics.
-            </p>
-            <div className="mt-6 overflow-hidden rounded-2xl border border-white/20 bg-slate-950/25 p-3">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10">
-                <Image
-                  src="/images/orbit-demo-reel.svg"
-                  alt="Orbit Suite product feature visual"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 560px"
-                  priority
-                />
-              </div>
-              <div className="mt-3 grid grid-cols-3 gap-2 text-center">
-                <div className="rounded-lg bg-white/15 p-2">
-                  <p className="text-sm font-semibold">1.8M</p>
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-fuchsia-100">Events/day</p>
-                </div>
-                <div className="rounded-lg bg-white/15 p-2">
-                  <p className="text-sm font-semibold">99.98%</p>
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-fuchsia-100">Uptime</p>
-                </div>
-                <div className="rounded-lg bg-white/15 p-2">
-                  <p className="text-sm font-semibold">140ms</p>
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-fuchsia-100">Avg latency</p>
-                </div>
-              </div>
+                Explore Our Services
+              </ButtonLink>
             </div>
-            <ButtonLink href="/products" variant="secondary" className="mt-6 border-white/40 bg-white/10 text-white hover:bg-white/20">
-              View Product Details <ArrowRight className="ml-2 h-4 w-4" />
-            </ButtonLink>
+            <p className="mt-9 text-xs font-medium uppercase tracking-[0.2em] text-slate-400">{siteConfig.tagline}</p>
           </div>
-        </FadeIn>
-      </section>
 
-      <section className="py-12">
-        <FadeIn>
-          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">Core Offerings</h2>
-        </FadeIn>
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
-          {offerings.map((offering, index) => (
-            <FadeIn key={offering.title} delay={0.05 * index}>
-              <Card title={offering.title} description={offering.description} />
-            </FadeIn>
-          ))}
+          <div className="relative mx-auto flex aspect-square w-full max-w-[440px] items-center justify-center">
+            <div aria-hidden="true" className="absolute inset-[8%] rounded-full border border-blue-300/15" />
+            <div aria-hidden="true" className="absolute inset-[18%] rounded-full border border-cyan-200/10" />
+            <div aria-hidden="true" className="absolute inset-[3%] rounded-full bg-blue-500/10 blur-3xl" />
+            <div className="relative aspect-square w-[72%] overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_30px_100px_rgba(37,99,235,0.22)]">
+              <Image
+                src="/brand/srasphere-mark.png"
+                alt="SraSphere blue wave monogram"
+                fill
+                priority
+                sizes="(max-width: 1024px) 72vw, 320px"
+                className="object-contain"
+              />
+            </div>
+            <div className="absolute left-[2%] top-[25%] rounded-2xl border border-white/10 bg-[#111f33]/90 px-4 py-3 shadow-xl backdrop-blur">
+              <p className="text-[10px] uppercase tracking-[0.16em] text-blue-200">Digital presence</p>
+              <p className="mt-1 text-sm font-medium text-white">Made for people</p>
+            </div>
+            <div className="absolute bottom-[18%] right-0 rounded-2xl border border-white/10 bg-[#111f33]/90 px-4 py-3 shadow-xl backdrop-blur">
+              <p className="text-[10px] uppercase tracking-[0.16em] text-cyan-200">Business systems</p>
+              <p className="mt-1 text-sm font-medium text-white">Built to work</p>
+            </div>
+            <span aria-hidden="true" className="absolute right-[13%] top-[10%] h-2.5 w-2.5 rounded-full bg-cyan-200 shadow-[0_0_20px_#67e8f9]" />
+          </div>
         </div>
       </section>
 
-      <section className="py-12">
-        <FadeIn>
-          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">Why Choose SraSphere</h2>
-        </FadeIn>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {highlights.map((item, index) => (
-            <FadeIn
-              key={item}
-              delay={0.04 * index}
-              className="flex items-center gap-3 rounded-xl border border-slate-200/80 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
-            >
-              <CheckCircle2 className="h-5 w-5 text-fuchsia-600" />
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-200">{item}</span>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-
-      <section className="py-8">
-        <FadeIn className="rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-          <div className="grid gap-4 md:grid-cols-3">
-            {deliveryMetrics.map((metric) => (
-              <div key={metric.label} className="rounded-xl border border-slate-200/80 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/60">
-                <p className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{metric.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">{metric.label}</p>
-              </div>
+      <section className="bg-white py-20 sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-8">
+          <div>
+            <p className="section-eyebrow">A better way to build</p>
+            <h2 className="mt-4 max-w-lg text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+              Technology That Works for Your Business.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
+              Every business has different challenges. We bring together technology, strategy and practical execution
+              to make everyday operations simpler and digital growth more achievable.
+            </p>
+            <LinkArrow href="/about" label="Get to know us" />
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {principles.map((principle) => (
+              <article key={principle.number} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+                <span className="text-xs font-semibold tracking-[0.16em] text-blue-600">{principle.number}</span>
+                <h3 className="mt-8 text-base font-semibold">{principle.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{principle.description}</p>
+              </article>
             ))}
           </div>
-        </FadeIn>
-      </section>
-
-      <section className="py-12">
-        <FadeIn>
-          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">How We Deliver</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
-            Our process is designed for clarity, velocity, and measurable business outcomes.
-          </p>
-        </FadeIn>
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <FadeIn key={step.title} delay={0.05 * index}>
-              <Card
-                title={step.title}
-                description={step.description}
-                className="h-full border-slate-300/80 dark:border-slate-800"
-              />
-            </FadeIn>
-          ))}
         </div>
       </section>
 
-      <section className="py-12">
-        <FadeIn>
-          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">Execution Standards</h2>
-        </FadeIn>
-        <div className="mt-6 grid gap-5 md:grid-cols-2">
-          <FadeIn className="rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Engineering Governance</h3>
-            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              Architecture reviews, coding standards, CI quality gates, and security checklists are built into every
-              release cycle.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.05} className="rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Operational Reliability</h3>
-            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              We design for observability, incident readiness, and resilient infrastructure so your platform scales
-              with confidence.
-            </p>
-          </FadeIn>
+      <section className="bg-[#F8FAFC] py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div className="max-w-2xl">
+              <p className="section-eyebrow">What we do</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+                Solutions Designed Around Your Business.
+              </h2>
+              <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">
+                From a stronger online presence to connected business tools, get the right support for your next step.
+              </p>
+            </div>
+            <LinkArrow href="/services" label="Explore all services" />
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => {
+              const Icon = serviceIcons[service.icon];
+
+              return (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="group rounded-2xl border border-slate-200 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-950/5"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-blue-50 text-blue-700">
+                    <Icon aria-hidden="true" size={21} />
+                  </span>
+                  <span className="text-xs font-semibold tracking-widest text-slate-400">{service.number}</span>
+                </div>
+                <h3 className="mt-6 text-lg font-semibold">{service.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{service.shortDescription}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-700">
+                  Learn more <ArrowRight aria-hidden="true" size={15} className="transition group-hover:translate-x-1" />
+                </span>
+              </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <section className="py-12">
-        <FadeIn className="rounded-3xl border border-slate-200/80 bg-slate-900 p-8 text-slate-100 dark:border-slate-700 dark:bg-slate-900">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-fuchsia-300">Engagement Model</p>
-          <h2 className="mt-3 text-3xl font-semibold">From MVP to enterprise scale, with one technology partner</h2>
-          <div className="mt-6 grid gap-4 text-sm leading-7 text-slate-300 md:grid-cols-3">
-            <p>Dedicated engineering pods tailored to your product roadmap and release cadence.</p>
-            <p>Transparent execution with sprint-based delivery, technical documentation, and architecture reviews.</p>
-            <p>Post-launch reliability support across performance, security, and feature iteration.</p>
+      <section className="bg-[#0B1320] py-20 text-white sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-8">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-300">Why SraSphere</p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+              More than technology. A better way forward.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              The best solution starts with understanding what it needs to do for your business.
+            </p>
           </div>
-        </FadeIn>
+          <ul className="divide-y divide-white/10">
+            {reasons.map((reason, index) => (
+              <li key={reason} className="flex gap-4 py-4 first:pt-0 last:pb-0">
+                <span className="pt-0.5 text-xs font-bold tracking-widest text-blue-300">0{index + 1}</span>
+                <span className="text-sm leading-6 text-slate-200 sm:text-base">{reason}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
-      <section className="py-12">
-        <FadeIn className="rounded-3xl border border-slate-200/80 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-fuchsia-700 dark:text-fuchsia-400">Build with confidence</p>
-          <h2 className="mt-3 text-3xl font-semibold text-slate-900 dark:text-slate-100">
-            Need a software house that thinks long term?
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
-            Partner with SraSphere to architect, launch, and scale software platforms that become core business assets.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <ButtonLink href="/contact">Start a Project</ButtonLink>
-            <ButtonLink href="/solutions" variant="secondary">
-              View Solutions
-            </ButtonLink>
+      <section className="bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="section-eyebrow">Who we work with</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Technology for the way you work.</h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">
+              We shape each engagement around the people, services and processes behind the business.
+            </p>
           </div>
-        </FadeIn>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map(({ title, description, icon: Icon }) => (
+              <article key={title} className="flex gap-4 rounded-2xl border border-slate-200 p-5">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#E6F0FF] text-blue-700">
+                  <Icon aria-hidden="true" size={20} />
+                </span>
+                <div>
+                  <h3 className="font-semibold">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
+
+      <section className="bg-[#F8FAFC] py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div className="max-w-2xl">
+              <p className="section-eyebrow">Selected work</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Ideas made tangible.</h2>
+              <p className="mt-4 text-base leading-7 text-slate-600">
+                A selection of project work and clearly labelled concept demonstrations.
+              </p>
+            </div>
+            <LinkArrow href="/work" label="View our work" />
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {projects.map((project) => (
+              <Link
+                key={project.name}
+                href={`/work/${project.slug}`}
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/5"
+              >
+                <ProjectVisual kind={project.visual} />
+                <div className="p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-700">{project.type}</p>
+                  <h3 className="mt-2 text-lg font-semibold">{project.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{project.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-800">
+                    View project <ArrowRight aria-hidden="true" size={15} className="transition group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-5 text-xs leading-5 text-slate-500">
+            Portfolio examples include academic, internal and concept work. Concept demonstrations are not presented as
+            completed client engagements.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="section-eyebrow">A clear process</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+              From business challenge to digital solution.
+            </h2>
+          </div>
+          <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {process.map((step) => (
+              <li key={step.number} className="border-t-2 border-blue-100 pt-5">
+                <p className="text-sm font-bold tracking-widest text-blue-600">{step.number}</p>
+                <h3 className="mt-5 text-lg font-semibold">{step.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{step.description}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="px-4 pb-20 sm:px-6 sm:pb-24 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 overflow-hidden rounded-[2rem] bg-[#0B1320] px-6 py-10 text-white sm:px-10 sm:py-14 lg:flex-row lg:items-center lg:px-14">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-300">Let&apos;s talk</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Ready to take your business online?</h2>
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              Let&apos;s discuss your ideas and find the right digital solution for your business.
+            </p>
+          </div>
+          <ButtonLink href="/contact" className="shrink-0 gap-2 self-start lg:self-auto">
+            Let&apos;s Talk <ArrowRight aria-hidden="true" size={16} />
+          </ButtonLink>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function LinkArrow({ href, label }: { href: string; label: string }) {
+  return (
+    <Link href={href} className="inline-flex w-fit items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900">
+      {label} <ArrowDownRight aria-hidden="true" size={16} />
+    </Link>
+  );
+}
+
+function ProjectVisual({ kind }: { kind: string }) {
+  return (
+    <div className="relative h-52 overflow-hidden bg-[#0B1320] p-5">
+      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(37,99,235,0.35),transparent_44%)]" />
+      {kind === "access" && (
+        <div className="relative mx-auto grid h-full max-w-[290px] grid-cols-[0.7fr_1.3fr] gap-3 rounded-xl border border-white/15 bg-slate-900/80 p-3 shadow-2xl">
+          <div className="rounded-lg bg-blue-600/20 p-3">
+            <div className="h-3 w-12 rounded bg-blue-300/70" />
+            <div className="mt-5 space-y-2">{[1, 2, 3].map((item) => <div key={item} className="h-1.5 rounded bg-white/15" />)}</div>
+          </div>
+          <div className="space-y-2 rounded-lg bg-white/[0.04] p-3">
+            <div className="flex items-center justify-between"><span className="h-2 w-14 rounded bg-white/40" /><span className="h-4 w-10 rounded-full bg-emerald-300/20" /></div>
+            {[1, 2, 3].map((item) => <div key={item} className="flex h-7 items-center gap-2 rounded bg-white/[0.05] px-2"><span className="h-3 w-3 rounded-full bg-blue-300/60" /><span className="h-1.5 w-20 rounded bg-white/20" /></div>)}
+          </div>
+        </div>
+      )}
+      {kind === "commerce" && (
+        <div className="relative mx-auto flex h-full max-w-[290px] items-center gap-3 rounded-xl border border-white/15 bg-slate-900/80 p-3 shadow-2xl">
+          <div className="grid h-full flex-1 grid-cols-2 gap-2">
+            {["from-blue-300/30 to-cyan-200/5", "from-amber-200/25 to-orange-100/5"].map((tone) => (
+              <div key={tone} className={`rounded-lg bg-gradient-to-br ${tone}`} />
+            ))}
+          </div>
+          <div className="flex w-[42%] flex-col justify-center">
+            <div className="h-2 w-12 rounded bg-white/50" />
+            <div className="mt-3 h-1.5 w-full rounded bg-white/15" />
+            <div className="mt-1.5 h-1.5 w-4/5 rounded bg-white/15" />
+            <div className="mt-4 h-6 w-20 rounded-full bg-blue-500/70" />
+          </div>
+        </div>
+      )}
+      {kind === "management" && (
+        <div className="relative mx-auto h-full max-w-[290px] rounded-xl border border-white/15 bg-slate-900/80 p-4 shadow-2xl">
+          <div className="flex items-center justify-between"><div className="h-2 w-20 rounded bg-white/35" /><div className="h-5 w-5 rounded-full bg-blue-300/40" /></div>
+          <div className="mt-4 grid grid-cols-3 gap-2">{[1, 2, 3].map((item) => <div key={item} className="h-8 rounded-md bg-white/[0.06]" />)}</div>
+          <div className="mt-3 flex h-[4.5rem] items-end gap-2 rounded-lg bg-white/[0.04] px-4 pt-3">{[35, 55, 42, 75, 58, 88, 66, 94].map((height, index) => <div key={index} style={{ height: `${height}%` }} className="flex-1 rounded-t-sm bg-gradient-to-t from-blue-700 to-cyan-300/80" />)}</div>
+        </div>
+      )}
+      <div className="absolute bottom-3 right-4 inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-slate-300">
+        <Check aria-hidden="true" size={11} /> Project visual
+      </div>
     </div>
   );
 }

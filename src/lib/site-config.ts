@@ -1,22 +1,20 @@
 export const siteConfig = {
   name: "SraSphere",
+  tagline: "Technology. Simplified. Business. Amplified.",
   description:
-    "SraSphere builds scalable SaaS platforms, automation systems, and secure cloud solutions for modern businesses.",
+    "SraSphere helps businesses establish their digital presence, streamline operations and build technology that supports long-term growth.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.srasphere.com",
   links: {
-    email: "team@srasphere.com",
-    phone: "+44 7435 440972",
-  },
-  studios: {
-    pakistan: "NICL, Daftarkhawan, Lahore",
-    uk: "80 West Wycombe Road, High Wycombe, HP11 2LP",
+    email: "hello@srasphere.com",
+    instagram: "https://instagram.com/srasphere",
+    whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "",
   },
   navItems: [
     { href: "/", label: "Home" },
-    { href: "/products", label: "Products" },
-    { href: "/solutions", label: "Solutions" },
+    { href: "/services", label: "Services" },
+    { href: "/work", label: "Our Work" },
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/insights", label: "Insights" },
   ],
   legalItems: [
     { href: "/legal/privacy-policy", label: "Privacy Policy" },

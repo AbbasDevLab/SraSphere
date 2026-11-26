@@ -10,11 +10,12 @@ export function BrandLogo({ className, imageClassName }: BrandLogoProps) {
   return (
     <div className={cn("relative", className)}>
       <Image
-        src="/brand/logo.svg"
-        alt="SraSphere brand logo"
-        width={512}
-        height={512}
-        className={cn("block rounded-lg", imageClassName)}
+        src="/brand/srasphere-wordmark.png"
+        alt="SraSphere Digital Solutions Studio"
+        width={2000}
+        height={667}
+        sizes="(max-width: 640px) 140px, 180px"
+        className={cn("block h-auto w-full", imageClassName)}
         priority
       />
     </div>

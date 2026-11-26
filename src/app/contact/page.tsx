@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const hasWhatsApp = Boolean(siteConfig.contact.whatsappNumber);
   const hasLinkedIn = Boolean(siteConfig.contact.linkedin);
+  const hasEmail = Boolean(siteConfig.contact.email);
 
   return (
     <>
@@ -38,20 +39,22 @@ export default function ContactPage() {
               </div>
 
               <ul className="space-y-4">
-                <li>
-                  <a
-                    href={`mailto:${siteConfig.contact.email}`}
-                    className="flex items-start gap-4 rounded-2xl border border-navy-900/10 bg-white p-5 transition hover:border-cyan-300/60 hover:shadow-md hover:shadow-navy-900/5"
-                  >
-                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-cyan-300">
-                      <Mail className="h-5 w-5" />
-                    </span>
-                    <span>
-                      <span className="block font-semibold text-navy-900">Email</span>
-                      <span className="mt-1 block text-sm text-slate-600">{siteConfig.contact.email}</span>
-                    </span>
-                  </a>
-                </li>
+                {hasEmail ? (
+                  <li>
+                    <a
+                      href={`mailto:${siteConfig.contact.email}`}
+                      className="flex items-start gap-4 rounded-2xl border border-navy-900/10 bg-white p-5 transition hover:border-cyan-300/60 hover:shadow-md hover:shadow-navy-900/5"
+                    >
+                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-cyan-300">
+                        <Mail className="h-5 w-5" />
+                      </span>
+                      <span>
+                        <span className="block font-semibold text-navy-900">Email</span>
+                        <span className="mt-1 block text-sm text-slate-600">{siteConfig.contact.email}</span>
+                      </span>
+                    </a>
+                  </li>
+                ) : null}
 
                 {hasWhatsApp ? (
                   <li>

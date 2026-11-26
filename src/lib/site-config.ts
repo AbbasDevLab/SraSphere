@@ -7,14 +7,13 @@ export const siteConfig = {
   // Editable placeholders — replace with live details before launch.
   contact: {
     // TODO: replace with the real business email when supplied.
-    email: "hello@srasphere.com",
+    email: "",
     // TODO: replace with the real WhatsApp number (digits only, with country code) when supplied.
     whatsappNumber: "",
     whatsappDisplay: "",
     // TODO: replace with the real LinkedIn page URL when supplied.
     linkedin: "",
-    // TODO: replace with the real Instagram page URL when supplied.
-    instagram: "",
+    instagram: "https://instagram.com/srasphere",
   },
   navItems: [
     { href: "/", label: "Home" },

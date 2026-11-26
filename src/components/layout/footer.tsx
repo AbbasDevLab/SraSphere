@@ -4,10 +4,12 @@ import { siteConfig } from "@/lib/site-config";
 import { BrandLogo } from "@/components/layout/brand-logo";
 
 const serviceLinks = [
-  { label: "Digital Experiences", hash: "#digital-experiences" },
-  { label: "Business Solutions", hash: "#business-solutions" },
-  { label: "Software Engineering", hash: "#software-engineering" },
-  { label: "Digital Intelligence", hash: "#digital-intelligence" },
+  { label: "Website Development", hash: "#website-development" },
+  { label: "E-commerce Solutions", hash: "#ecommerce-solutions" },
+  { label: "Business Automation", hash: "#business-automation" },
+  { label: "Mobile App Development", hash: "#mobile-app-development" },
+  { label: "Custom Digital Solutions", hash: "#custom-digital-solutions" },
+  { label: "Cloud & Technology", hash: "#cloud-technology-solutions" },
 ];
 
 export function Footer() {
@@ -87,15 +89,17 @@ export function Footer() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Get in touch</p>
             <ul className="mt-4 space-y-3 text-sm text-navy-100">
-              <li>
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="inline-flex items-center gap-2 transition hover:text-white"
-                >
-                  <Mail size={16} className="text-cyan-300" />
-                  {siteConfig.contact.email}
-                </a>
-              </li>
+              {siteConfig.contact.email ? (
+                <li>
+                  <a
+                    href={`mailto:${siteConfig.contact.email}`}
+                    className="inline-flex items-center gap-2 transition hover:text-white"
+                  >
+                    <Mail size={16} className="text-cyan-300" />
+                    {siteConfig.contact.email}
+                  </a>
+                </li>
+              ) : null}
               {hasWhatsApp ? (
                 <li>
                   <a

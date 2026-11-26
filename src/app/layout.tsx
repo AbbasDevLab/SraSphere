@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   icons: {
-    icon: [{ url: "/brand/icon.svg", type: "image/svg+xml" }],
-    shortcut: "/brand/icon.svg",
+    icon: [{ url: "/brand/Glossy_Blue_S-Wave_Logo.png", type: "image/png" }],
+    shortcut: "/brand/Glossy_Blue_S-Wave_Logo.png",
   },
 };
 

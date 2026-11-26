@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  CheckCircle2,
+  ChevronRight,
+  HeartPulse,
+  BriefcaseBusiness,
+  ShoppingBag,
+  Smartphone,
+  Utensils,
+} from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { OrbitalSphere } from "@/components/visuals/orbital-sphere";
@@ -26,21 +36,25 @@ const benefits = [
     description: "Right-sized systems that solve the problem without over-engineering.",
   },
   {
-    title: "Transparent collaboration",
-    description: "Clear scope, visible progress and honest communication throughout.",
-  },
-  {
-    title: "Long-term support",
-    description: "We stay after launch to maintain, improve and evolve what we build.",
+    title: "Long-term digital growth",
+    description: "Foundations that can evolve as your business, team and customers grow.",
   },
 ];
 
 const approachSteps = [
-  { number: "01", title: "Discover", description: "Understand the business, challenges and requirements." },
-  { number: "02", title: "Strategize", description: "Define the solution, scope and implementation roadmap." },
-  { number: "03", title: "Develop", description: "Design, build and integrate the agreed solution." },
-  { number: "04", title: "Deliver", description: "Test, launch and hand over the completed project." },
-  { number: "05", title: "Support", description: "Maintain, improve and evolve the solution." },
+  { number: "01", title: "Discover", description: "Understand the business, objectives and requirements." },
+  { number: "02", title: "Design", description: "Plan the user experience and technical solution." },
+  { number: "03", title: "Develop", description: "Build, test and refine the agreed solution." },
+  { number: "04", title: "Launch", description: "Deploy the finished project and provide agreed support." },
+];
+
+const industries = [
+  { title: "Healthcare & Dental", description: "Clear websites, enquiry journeys and practical tools for patient-facing teams.", icon: HeartPulse },
+  { title: "Restaurants & Cafes", description: "Digital menus, ordering experiences and systems that help service teams move faster.", icon: Utensils },
+  { title: "Real Estate", description: "Property-led experiences that make listings, enquiries and follow-up easier to manage.", icon: Building2 },
+  { title: "E-commerce", description: "Storefronts and customer journeys that help products get discovered and purchased.", icon: ShoppingBag },
+  { title: "Professional Services", description: "Credible digital presence and automation for firms built on expertise and trust.", icon: BriefcaseBusiness },
+  { title: "Growing Businesses", description: "Focused technology foundations for teams moving beyond manual processes.", icon: Smartphone },
 ];
 
 const whyPoints = [
@@ -142,10 +156,10 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Services"
               title="Solutions Designed Around Your Business."
-              description="Four connected practices, one accountable team. Every engagement starts with understanding what your business actually needs."
+              description="Six connected capabilities, one accountable team. Every engagement starts with understanding what your business actually needs."
             />
           </FadeIn>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {serviceCategories.map((category, index) => (
               <FadeIn key={category.id} delay={index * 0.06}>
                 <article className="group flex h-full flex-col rounded-2xl border border-navy-900/10 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/50 hover:shadow-xl hover:shadow-navy-900/8">
@@ -186,7 +200,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 4: FEATURED WORK */}
+      {/* SECTION 4: INDUSTRIES */}
+      <section className="bg-cloud py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Industries We Serve"
+              title="Digital solutions that fit the way your industry works."
+              description="Every sector has its own customers, constraints and operating rhythm. We keep the technology practical and shape the experience around the people who use it."
+            />
+          </FadeIn>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((industry, index) => (
+              <FadeIn key={industry.title} delay={index * 0.05}>
+                <div className="group h-full rounded-2xl border border-navy-900/10 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/60 hover:shadow-lg hover:shadow-navy-900/5">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-pale-blue bg-[#E6F0FF] text-[#2563EB] transition-colors group-hover:bg-[#2563EB] group-hover:text-white">
+                    <industry.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-5 font-semibold text-navy-900">{industry.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{industry.description}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: FEATURED WORK */}
       <section className="bg-navy-900 py-20 lg:py-28">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
@@ -254,7 +294,7 @@ export default function HomePage() {
           <div className="mt-16 hidden lg:block">
             <div className="relative">
               <div className="absolute left-0 right-0 top-[7px] h-px bg-navy-900/15" />
-              <div className="grid grid-cols-5 gap-6">
+              <div className="grid grid-cols-4 gap-6">
                 {approachSteps.map((step, index) => (
                   <FadeIn key={step.number} delay={index * 0.08}>
                     <div className="relative">

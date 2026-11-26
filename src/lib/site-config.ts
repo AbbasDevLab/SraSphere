@@ -5,7 +5,7 @@ export const siteConfig = {
     "SraSphere helps businesses establish their digital presence, streamline operations and build technology that supports long-term growth.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.srasphere.com",
   links: {
-    email: "hello@srasphere.com",
+    email: "srasphereofficial@gmail.com",
     instagram: "https://instagram.com/srasphere",
     whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "",
   },

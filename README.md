@@ -45,7 +45,7 @@ npm run start
 
 ## Contact enquiries
 
-The contact form validates project details and submits them to the Supabase `enquiries` table through `/api/enquiry`. Row-level security allows public inserts only, not reads or updates. If Supabase is not configured, the form reports that clearly and provides a direct email link to `hello@srasphere.com`.
+The contact form validates project details and submits them to the Supabase `enquiries` table through `/api/enquiry`. Row-level security allows public inserts only, not reads or updates. If Supabase is not configured, the form reports that clearly and provides a direct email link to `srasphereofficial@gmail.com`.
 
 ## Project Structure
 

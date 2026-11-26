@@ -21,8 +21,8 @@ export default function PrivacyPolicyPage() {
         <p>
           The information is used to respond to your enquiry and discuss related project work. Please do not include
           sensitive personal information in the form. To ask about information you have submitted, email{" "}
-          <a className="font-medium text-blue-700 underline underline-offset-2" href="mailto:hello@srasphere.com">
-            hello@srasphere.com
+          <a className="font-medium text-blue-700 underline underline-offset-2" href="mailto:srasphereofficial@gmail.com">
+            srasphereofficial@gmail.com
           </a>
           .
         </p>

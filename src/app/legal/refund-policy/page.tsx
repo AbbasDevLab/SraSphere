@@ -18,7 +18,7 @@ export default function RefundPolicyPage() {
           Subscription-based products may include trial or prorated cancellation terms where explicitly stated.
         </p>
         <p>
-          For billing concerns, contact hello@srasphere.com so we can review and resolve the issue promptly.
+          For billing concerns, contact srasphereofficial@gmail.com so we can review and resolve the issue promptly.
         </p>
       </div>
     </div>

@@ -44,8 +44,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-[76px] w-full max-w-7xl items-center justify-between gap-5 px-4 sm:px-6 lg:px-8">
-        <Link href="/" aria-label="SraSphere home" className="block w-[140px] shrink-0 sm:w-[166px]">
-          <BrandLogo />
+        <Link href="/" aria-label="SraSphere home" className="inline-flex shrink-0">
+          <BrandLogo variant="compact" />
         </Link>
 
         <div className="hidden items-center gap-5 md:flex">

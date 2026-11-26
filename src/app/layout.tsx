@@ -22,6 +22,15 @@ export const metadata: Metadata = {
     template: "%s | SraSphere",
   },
   description: siteConfig.description,
+  keywords: [
+    "Software Development Company",
+    "Web Development Services",
+    "Business Automation",
+    "ERP Implementation",
+    "Shopify Development",
+    "Custom Software Solutions",
+    "Digital Transformation",
+  ],
   openGraph: {
     title: "SraSphere | Digital Solutions Studio",
     description: siteConfig.description,
@@ -31,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/brand/srasphere-wordmark.png",
+        url: "/brand/SraSphere_Digital_Solutions_Logo.png",
         width: 2000,
         height: 667,
         alt: "SraSphere Digital Solutions Studio",
@@ -42,12 +51,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SraSphere | Digital Solutions Studio",
     description: siteConfig.description,
-    images: ["/brand/srasphere-wordmark.png"],
+    images: ["/brand/SraSphere_Digital_Solutions_Logo.png"],
   },
   icons: {
-    icon: "/brand/srasphere-mark.png",
-    shortcut: "/brand/srasphere-mark.png",
-    apple: "/brand/srasphere-mark.png",
+    icon: "/brand/Glossy_Blue_S-Wave_Logo.png",
+    shortcut: "/brand/Glossy_Blue_S-Wave_Logo.png",
+    apple: "/brand/Glossy_Blue_S-Wave_Logo.png",
   },
 };
 

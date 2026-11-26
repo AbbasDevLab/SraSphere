@@ -19,6 +19,23 @@ export const siteConfig = {
   legalItems: [
     { href: "/legal/privacy-policy", label: "Privacy Policy" },
     { href: "/legal/terms-of-service", label: "Terms of Service" },
-    { href: "/legal/refund-policy", label: "Refund Policy" },
   ],
-};
+} as const;
+
+export const serviceOptions = [
+  "Website Design & Development",
+  "E-commerce Solutions",
+  "Business Automation",
+  "Mobile App Development",
+  "Custom Digital Solutions",
+  "Cloud & Technology Solutions",
+  "Not sure yet",
+] as const;
+
+export const budgetOptions = [
+  "Under $500",
+  "$500-$1,000",
+  "$1,000-$3,000",
+  "$3,000-$5,000",
+  "$5,000+",
+] as const;

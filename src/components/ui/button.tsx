@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 
-type ButtonProps = {
+type ButtonLinkProps = {
   href: string;
   children: React.ReactNode;
   variant?: ButtonVariant;
@@ -11,12 +11,9 @@ type ButtonProps = {
 };
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    "bg-blue-600 text-white shadow-lg shadow-blue-900/10 hover:bg-blue-700",
-  secondary:
-    "border border-slate-300 bg-white text-slate-900 hover:border-blue-300 hover:bg-blue-50",
-  ghost:
-    "text-slate-700 hover:bg-slate-100",
+  primary: "bg-blue-600 text-white shadow-lg shadow-blue-900/10 hover:bg-blue-700",
+  secondary: "border border-slate-300 bg-white text-slate-900 hover:border-blue-300 hover:bg-blue-50",
+  ghost: "text-slate-700 hover:bg-slate-100",
 };
 
 export function ButtonLink({
@@ -24,7 +21,7 @@ export function ButtonLink({
   children,
   variant = "primary",
   className,
-}: ButtonProps) {
+}: ButtonLinkProps) {
   return (
     <Link
       href={href}

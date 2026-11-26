@@ -8,9 +8,9 @@ type BrandLogoProps = {
 
 export function BrandLogo({ className, imageClassName }: BrandLogoProps) {
   return (
-    <div className={cn("relative", className)}>
+    <span className={cn("block", className)}>
       <Image
-        src="/brand/srasphere-wordmark.png"
+        src="/brand/SraSphere_Digital_Solutions_Logo.png"
         alt="SraSphere Digital Solutions Studio"
         width={2000}
         height={667}
@@ -18,6 +18,6 @@ export function BrandLogo({ className, imageClassName }: BrandLogoProps) {
         className={cn("block h-auto w-full", imageClassName)}
         priority
       />
-    </div>
+    </span>
   );
 }

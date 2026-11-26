@@ -119,7 +119,7 @@ export default function HomePage() {
             <div aria-hidden="true" className="absolute inset-[3%] rounded-full bg-blue-500/10 blur-3xl" />
             <div className="relative aspect-square w-[72%] overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_30px_100px_rgba(37,99,235,0.22)]">
               <Image
-                src="/brand/srasphere-mark.png"
+                src="/brand/Glossy_Blue_S-Wave_Logo.png"
                 alt="SraSphere blue wave monogram"
                 fill
                 priority

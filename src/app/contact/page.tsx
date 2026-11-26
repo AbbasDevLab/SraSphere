@@ -17,7 +17,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="bg-[#0B1320] px-4 py-14 text-white sm:px-6 sm:py-18 lg:px-8">
+      <section className="bg-[#0B1320] px-4 py-14 text-white sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-7xl py-4 sm:py-6">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-300">Contact</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">

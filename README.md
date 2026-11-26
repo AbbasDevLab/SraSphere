@@ -21,9 +21,11 @@ npm install
 ```bash
 NEXT_PUBLIC_SITE_URL=https://www.srasphere.com
 NEXT_PUBLIC_WHATSAPP_NUMBER=
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
 ```
 
-Set these in `.env.local` for local development or in the deployment environment. Configure the WhatsApp number in international format using digits only, including its country code; the WhatsApp contact option is hidden until a number is configured.
+Set these in `.env.local` for local development or in the deployment environment. Configure the WhatsApp number in international format using digits only, including its country code; the WhatsApp contact option is hidden until a number is configured. Apply the SQL migration in `supabase/migrations/` to the configured Supabase project before enabling enquiry submissions.
 
 3. Run the development server:
 
@@ -43,13 +45,14 @@ npm run start
 
 ## Contact enquiries
 
-The contact form validates project details and opens the visitor's email application with a pre-addressed message to `hello@srasphere.com`. The visitor reviews and sends the email from their own account; no server-side email provider is configured in this repository.
+The contact form validates project details and submits them to the Supabase `enquiries` table through `/api/enquiry`. Row-level security allows public inserts only, not reads or updates. If Supabase is not configured, the form reports that clearly and provides a direct email link to `hello@srasphere.com`.
 
 ## Project Structure
 
 ```text
 src/
   app/
+    api/enquiry/route.ts
     api/stripe/route.ts
     about/
     contact/
@@ -73,13 +76,15 @@ src/
     content.ts
     site-config.ts
     utils.ts
+supabase/
+  migrations/
 ```
 
 ## Notes
 
 - Service and article detail pages are generated from `src/lib/content.ts`.
-- Contact form validation uses React Hook Form.
-- Stripe API route is a placeholder for future subscription checkout logic.
+- Contact form validation uses React Hook Form; enquiry storage requires the Supabase settings above.
+- Stripe API route remains a placeholder for future subscription checkout logic.
 - Legacy `/blog`, `/products`, and `/solutions` paths redirect to the current content sections.
 
 ## Learn More

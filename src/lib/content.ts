@@ -203,7 +203,7 @@ export const services = [
       },
     ],
   },
-];
+] as const;
 
 export const projects = [
   {

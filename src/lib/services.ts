@@ -1,5 +1,4 @@
 import {
-  Briefcase,
   Cloud,
   Code2,
   Globe,
